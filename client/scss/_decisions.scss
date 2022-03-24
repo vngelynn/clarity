@@ -1,0 +1,29 @@
+body {
+    background-color: #B3ACA7;
+    font-family: 'Playfair Display', serif;
+}
+
+.outerBox {
+	margin: auto;
+	height: 70%;
+	width: 70%;
+	background: $lightlinen;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	border-radius: 20px;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+button {
+	min-width: 4em;
+	padding: 0.4em 1em;
+	margin: 3px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	&:disabled {
+	  background-color: #eee;
+	  color: #777;
+	}
+  }

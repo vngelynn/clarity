@@ -31,13 +31,13 @@ export const updateOption = data => ({
   
   export const spinOptions = id => (dispatch, getState) => {
     dispatch({ type: types.SPIN_OPTIONS, payload: id });
-    const spinResult = getState().markets.spinResult;
+    const spinResult = getState().options.spinResult;
     alert(spinResult);
   };
   
   export const addOption = event => (dispatch, getState) => {
     event.preventDefault();
-    const option = getState().markets.newOption;
+    const option = getState().options.newOption;
     if (option) {
       dispatch({
         type: types.ADD_OPTION,
@@ -47,7 +47,7 @@ export const updateOption = data => ({
   };
   
   export const syncOptions = () => (dispatch, getState) => {
-    axios.put('/markets', getState().markets.marketList)
+    axios.put('/options', getState().options.optionList)
       .then(({ status }) => {
         if (status === 200) dispatch({ type: types.SYNC_OPTIONS });
       })
@@ -55,7 +55,7 @@ export const updateOption = data => ({
   };
   
   export const loadOptions = () => (dispatch) => {
-    axios.get('/markets')
+    axios.get('/options')
       .then(({ data }) => {
         dispatch({
           type: types.LOAD_OPTIONS,
